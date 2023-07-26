@@ -1,15 +1,18 @@
 {
   "files": {
     "main.css": "/LaboratorioDeIdeas/static/css/main.f97fb17d.css",
-    "main.js": "/LaboratorioDeIdeas/static/js/main.dbed87c9.js",
+    "main.js": "/LaboratorioDeIdeas/static/js/main.607f59a6.js",
     "static/js/787.9a8f3cd3.chunk.js": "/LaboratorioDeIdeas/static/js/787.9a8f3cd3.chunk.js",
+    "static/media/WISE.png": "/LaboratorioDeIdeas/static/media/WISE.915e215e2976149e8559.png",
+    "static/media/HUB.png": "/LaboratorioDeIdeas/static/media/HUB.7bb24835371f5eff91c3.png",
+    "static/media/UDEP.jpeg": "/LaboratorioDeIdeas/static/media/UDEP.559f76b3e2bb6a39317d.jpeg",
     "index.html": "/LaboratorioDeIdeas/index.html",
     "main.f97fb17d.css.map": "/LaboratorioDeIdeas/static/css/main.f97fb17d.css.map",
-    "main.dbed87c9.js.map": "/LaboratorioDeIdeas/static/js/main.dbed87c9.js.map",
+    "main.607f59a6.js.map": "/LaboratorioDeIdeas/static/js/main.607f59a6.js.map",
     "787.9a8f3cd3.chunk.js.map": "/LaboratorioDeIdeas/static/js/787.9a8f3cd3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f97fb17d.css",
-    "static/js/main.dbed87c9.js"
+    "static/js/main.607f59a6.js"
   ]
 }
