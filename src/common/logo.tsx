@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material"
 import React from "react"
-import UDEP from "../assets/UDEP.jpeg"
+import UDEP from "../assets/UDEP.png"
 import WISE from "../assets/WISE.png"
 import HUB from "../assets/HUB.png"
 
