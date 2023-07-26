@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/LaboratorioDeIdeas/static/css/main.f97fb17d.css",
-    "main.js": "/LaboratorioDeIdeas/static/js/main.d1ff008b.js",
-    "static/js/787.9a8f3cd3.chunk.js": "/LaboratorioDeIdeas/static/js/787.9a8f3cd3.chunk.js",
-    "index.html": "/LaboratorioDeIdeas/index.html",
-    "main.f97fb17d.css.map": "/LaboratorioDeIdeas/static/css/main.f97fb17d.css.map",
-    "main.d1ff008b.js.map": "/LaboratorioDeIdeas/static/js/main.d1ff008b.js.map",
-    "787.9a8f3cd3.chunk.js.map": "/LaboratorioDeIdeas/static/js/787.9a8f3cd3.chunk.js.map"
+    "main.css": "/Lab-ideas/static/css/main.f97fb17d.css",
+    "main.js": "/Lab-ideas/static/js/main.f20637e1.js",
+    "static/js/787.9a8f3cd3.chunk.js": "/Lab-ideas/static/js/787.9a8f3cd3.chunk.js",
+    "index.html": "/Lab-ideas/index.html",
+    "main.f97fb17d.css.map": "/Lab-ideas/static/css/main.f97fb17d.css.map",
+    "main.f20637e1.js.map": "/Lab-ideas/static/js/main.f20637e1.js.map",
+    "787.9a8f3cd3.chunk.js.map": "/Lab-ideas/static/js/787.9a8f3cd3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f97fb17d.css",
-    "static/js/main.d1ff008b.js"
+    "static/js/main.f20637e1.js"
   ]
 }
