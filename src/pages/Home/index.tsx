@@ -33,7 +33,7 @@ export const HomePage: React.FC = () => {
             sx={{ textAlign: 'center', color: '#000000' }}
             maxWidth={"md"}
           >
-            Asesorías personalizadas para emprendedores
+            Asesorías personalizadas para alumnas
           </Typography>
           <Typography
             variant="h6"

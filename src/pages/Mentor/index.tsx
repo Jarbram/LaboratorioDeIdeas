@@ -32,7 +32,8 @@ export const MentorPage: React.FC = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [message1, setMessage1] = useState('');
+  const [message2, setMessage2] = useState('');
   const { getSuccess, getError } = UseNotification();
 
   const getMentorId = async (id: string | undefined) => {
@@ -81,17 +82,21 @@ export const MentorPage: React.FC = () => {
     setEmail(email);
   };
 
-  const handleMessageChange = (message: string) => {
-    setMessage(message);
+  const handleMessage1Change = (message1: string) => {
+    setMessage1(message1);
+  };
+
+  const handleMessage2Change = (message2: string) => {
+    setMessage2(message2);
   };
 
   const handleFormSubmit = async () => {
-    if (!selectedAvailability || !name || !email || !message) {
+    if (!selectedAvailability || !name || !email || !message1 || !message2) {
       getError('Por favor, complete todos los campos antes de enviar la solicitud.');
       return;
     }
   
-    const formattedMessage = `Hola me gustaria tener una mentoria con ${mentor?.nombre} , para el dia ${selectedAvailability.date} a las ${selectedAvailability.time}. ${message} muchas gracias espero su confirmacion.`;
+    const formattedMessage = `Hola me gustaria tener una mentoria con ${mentor?.nombre} , para el dia ${selectedAvailability.date} a las ${selectedAvailability.time}. Mi idea de negocio es ${message1} y tengo las siguientes dudas : ${message2} muchas gracias espero su confirmacion.`;
   
     const templateParams = {
       user_name: name,
@@ -211,13 +216,15 @@ export const MentorPage: React.FC = () => {
         <RequestForm
           name={name}
           email={email}
-          message={message}
+          message1={message1}
+          message2={message2}
           onChangeName={handleNameChange}
           onChangeEmail={handleEmailChange}
-          onChangeMessage={handleMessageChange}
+          onChangeMessage1={handleMessage1Change}
+          onChangeMessage2={handleMessage2Change}
           onSubmit={handleFormSubmit}
           onCancel={handleDialogClose}
-          disabled={!selectedAvailability || !name || !email || !message}
+          disabled={!selectedAvailability || !name || !email || !message1 || !message2}
         />
       </Dialog>
     </Container>

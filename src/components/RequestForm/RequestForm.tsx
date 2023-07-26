@@ -4,10 +4,12 @@ import { Button, DialogActions, DialogContent, TextField, Typography } from '@mu
 interface RequestFormProps {
   name: string;
   email: string;
-  message: string;
+  message1: string;
+  message2: string;
   onChangeName: (name: string) => void;
   onChangeEmail: (email: string) => void;
-  onChangeMessage: (message: string) => void;
+  onChangeMessage1: (message: string) => void;
+  onChangeMessage2: (message: string) => void;
   onSubmit: () => void;
   onCancel: () => void;
   disabled: boolean;
@@ -16,10 +18,12 @@ interface RequestFormProps {
 const RequestForm: React.FC<RequestFormProps> = ({
   name,
   email,
-  message,
+  message1,
+  message2,
   onChangeName,
   onChangeEmail,
-  onChangeMessage,
+  onChangeMessage1,
+  onChangeMessage2,
   onSubmit,
   onCancel,
   disabled,
@@ -47,17 +51,30 @@ const RequestForm: React.FC<RequestFormProps> = ({
           onChange={(e) => onChangeEmail(e.target.value)}
         />
         <Typography variant="body2" sx={{ mt: 2 }}>
-        En el mensaje describe tu idea de negocio y la duda o problema específico que deseas solucionar con la mentoría.
+        Describe tu idea de negocio.
         </Typography>
         <TextField
           margin="dense"
           id="message"
-          label="Mensaje"
+          label="Idea de negocio"
           multiline
           rows={4}
           fullWidth
-          value={message}
-          onChange={(e) => onChangeMessage(e.target.value)}
+          value={message1}
+          onChange={(e) => onChangeMessage1(e.target.value)}
+        />
+         <Typography variant="body2" sx={{ mt: 2 }}>
+        Describe las dudas o problemas que te gustaria resolver.
+        </Typography>
+        <TextField
+          margin="dense"
+          id="message"
+          label="Duda"
+          multiline
+          rows={4}
+          fullWidth
+          value={message2}
+          onChange={(e) => onChangeMessage2(e.target.value)}
         />
       </DialogContent>
       <DialogActions>

@@ -15,6 +15,7 @@ export const Logo: React.FC<{}> = () => {
         alignItems: 'center',
         justifyContent: 'space-around',
         width: '100%',
+        mt: '-20px',
 
         [theme.breakpoints.up('sm')]: {
           flexDirection: 'row',
