@@ -2,6 +2,7 @@ import React, {useRef} from 'react';
 import { Box, Button, Card, CardHeader, Container,  Grid, Icon, Typography } from '@mui/material';
 import { MentorList } from '../../components/MentorList';
 import { EmojiObjectsOutlined, GroupWork, HelpOutlined } from '@mui/icons-material';
+import { Logo } from '../../common/logo';
 
 export const HomePage: React.FC = () => {
   const mentorListRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <Container sx={{ mt: 8 }} maxWidth="xl">
+      <Logo />
       <Box
         sx={{ width: '100%',display: 'flex', flexDirection: 'column', justifyContent: 'space-between', py: 8, px: 5, backgroundColor: '#ffffff'}}
         borderRadius={6}

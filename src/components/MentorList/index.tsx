@@ -42,33 +42,39 @@ export const MentorList: React.FC<MentorListProps> = () => {
 
   return (
     <>
-      <Stepper activeStep={0} alternativeLabel sx={{ mb: 0, mt:8}} >
+      <Stepper activeStep={0} alternativeLabel sx={{ mb: 0, mt: 8 }}>
         <Step>
-          <StepLabel >Elige el Mentor</StepLabel>
+          <StepLabel>Elige el Mentor</StepLabel>
         </Step>
         <Step>
-          <StepLabel>Escoge la fecha y horario disponible </StepLabel>
+          <StepLabel>Escoge la fecha y horario disponible</StepLabel>
         </Step>
         <Step>
           <StepLabel>Solicita la mentoria</StepLabel>
         </Step>
       </Stepper>
 
-      <Grid container spacing={3} justifyContent="center" mt={5} mb={12} >
+      <Grid container spacing={3} justifyContent="center" mt={5} mb={12}>
         {mentors.map((mentor) => (
           <Grid item key={mentor.id} xs={12} sm={6} md={4} lg={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column'}}>
+            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
               <CardMedia component="img" height="360" image={mentor.foto} alt="Mentor" />
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography variant="h6" sx={{ mb: 1.5 }}>
                   {mentor.nombre}
                 </Typography>
-                <Divider  />
+                <Divider />
                 <Typography sx={{ mt: 1.5 }}>{mentor.especialidad}</Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" variant="contained" fullWidth onClick={() => handleLearnMore(mentor.id)}>
-                  Agendar
+                <Button
+                  size="small"
+                  variant="contained"
+                  fullWidth
+                  onClick={() => handleLearnMore(mentor.id)}
+                  disabled={mentor.disponibilidad.trim() === ''}
+                >
+                  {mentor.disponibilidad.trim() === '' ? 'Agotado' : 'Agendar'}
                 </Button>
               </CardActions>
             </Card>
