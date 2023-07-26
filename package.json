@@ -1,7 +1,7 @@
 {
   "name": "ideas-lab",
-  "homepage": "https://github.com/Jarbram/ideas-lab",
   "version": "0.1.0",
+  "homepage": "https://Jarbram.github.io/LaboratorioDeIdeas",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^5.0.0"
   }
 }
