@@ -7,7 +7,8 @@ type ThemeProps = {
 
 export enum ThemePalette {
   BG = "#F2F2F2",
-  LIME = "#5B83A6",
+  BLUE = "#2B81B5",
+  YELLOW ="#FBBB21",
   FONT_GLOBAL = "'Montserrat', sans-serif;",
   //Alerts
   ERROR_MAIN = "#f44336",
@@ -23,7 +24,10 @@ const theme = createTheme({
       default: ThemePalette.BG,
     },
     primary: {
-      main: ThemePalette.LIME,
+      main: ThemePalette.BLUE,
+    },
+    secondary: {
+      main: ThemePalette.YELLOW,
     },
     error: {
       main: ThemePalette.ERROR_MAIN,

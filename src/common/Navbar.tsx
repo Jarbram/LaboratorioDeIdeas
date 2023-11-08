@@ -11,13 +11,13 @@ export const Navbar: React.FC<{}> = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="sticky">
+      <AppBar position="sticky" sx={{backgroundColor:'#ffffff'}}>
         <Toolbar>
           <Container maxWidth="xl">
             <Grid
               container
               direction="row"
-              justifyContent="space-between"
+              justifyContent="center"
               alignItems="center"
             >
               <Grid
@@ -25,8 +25,8 @@ export const Navbar: React.FC<{}> = () => {
                 sx={{ cursor: 'pointer' }}
                 onClick={() => navigate('/')}
               >
-                <Typography variant="h5" sx={{ textAlign: 'center' }} color="white">
-                  Laboratorio de Ideas
+                <Typography variant="h1" sx={{ textAlign: 'center', fontSize:'1.4rem', fontWeight:'bold' }} color="secondary">
+                  LABORATORIO DE IDEAS
                 </Typography>
               </Grid>
               <Grid item>

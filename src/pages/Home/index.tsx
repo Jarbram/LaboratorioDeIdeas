@@ -1,5 +1,5 @@
-import React, {useRef} from 'react';
-import { Box, Button, Card, CardHeader, Container,  Grid, Icon, Typography } from '@mui/material';
+import React, { useRef } from 'react';
+import { Box, Button, Card, CardHeader, Container, Grid, Icon, Typography} from '@mui/material';
 import { MentorList } from '../../components/MentorList';
 import { EmojiObjectsOutlined, GroupWork, HelpOutlined } from '@mui/icons-material';
 import { Logo } from '../../common/logo';
@@ -14,10 +14,18 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <Container sx={{ mt: 8 }} maxWidth="xl">
+    <Container sx={{ mt:1}} maxWidth="xl">
       <Logo />
       <Box
-        sx={{ width: '100%',display: 'flex', flexDirection: 'column', justifyContent: 'space-between', py: 8, px: 5, backgroundColor: '#ffffff'}}
+        sx={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          py: 8,
+          px: 5,
+          backgroundColor: '#ffffff',
+        }}
         borderRadius={6}
       >
         <Grid
@@ -27,30 +35,33 @@ export const HomePage: React.FC = () => {
           alignItems="center"
           flexDirection="column"
           sx={{ height: '100%'}}
-          
         >
           <Typography
             variant="h4"
             sx={{ textAlign: 'center', color: '#000000' }}
-            maxWidth={"md"}
+            maxWidth="md"
           >
             Asesorías personalizadas para alumnas
           </Typography>
           <Typography
             variant="h6"
-            sx={{ textAlign: 'center', color: '#000000', mt: 2, mb: 3, fontSize: '1rem' }}
-            maxWidth={"sm"}
+            sx={{
+              textAlign: 'center',
+              color: '#000000',
+              mt: 2,
+              mb: 3,
+              fontSize: '1rem',
+            }}
+            maxWidth="sm"
           >
             ¿Tienes una idea de negocio y no sabes cómo lanzarla?
           </Typography>
-          <Button onClick={scrollToMentorList} variant="contained" color="primary" sx={{ width: '180px', height: '40px' }}>
+          <Button onClick={scrollToMentorList} variant="contained" color="secondary" sx={{ width: '180px', height: '40px' }}>
             Agenda Aquí
           </Button>
         </Grid>
       </Box>
-      <Box
-        sx={{ width: '100%' }}
-      >
+      <Box sx={{ width: '100%' }}>
         <Grid
           container
           direction="row"
@@ -60,7 +71,13 @@ export const HomePage: React.FC = () => {
           <Grid item xs={12}>
             <Typography
               variant="h6"
-              sx={{ textAlign: 'center', color: 'gray', mt: 8, mb:5, fontSize: '1.5rem' }}
+              sx={{
+                textAlign: 'center',
+                color: 'gray',
+                mt: 8,
+                mb: 5,
+                fontSize: '1.5rem',
+              }}
             >
               Beneficios del Laboratorio de Ideas
             </Typography>
@@ -76,7 +93,7 @@ export const HomePage: React.FC = () => {
           height="auto"
         >
           <Grid item xs={12} md={4}>
-            <Card sx={{ height: '80px'}}>
+            <Card sx={{ height: '80px' }}>
               <CardHeader
                 title="Mentorías personalizadas con expertos en diversas áreas."
                 avatar={<Icon><EmojiObjectsOutlined /></Icon>}
@@ -85,9 +102,8 @@ export const HomePage: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card sx={{ height: '80px'}}>
+            <Card sx={{ height: '80px' }}>
               <CardHeader
-                
                 title="Aclaración de dudas y asesoramiento estratégico"
                 avatar={<Icon><HelpOutlined /></Icon>}
               />
@@ -101,16 +117,30 @@ export const HomePage: React.FC = () => {
               />
             </Card>
           </Grid>
-          <Link to="/register">
-              <Button variant="contained" color="primary" sx={{  mt: 5, mb: 5 }}>
-                Conviértete en Mentor
-              </Button>
-          </Link>
         </Grid>
       </Box>
       <Box ref={mentorListRef}>
-        <MentorList  />
+        <MentorList />
       </Box>
+          <Container maxWidth="xl" sx={{padding:'10px'}}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography variant="body1" sx={{ color: 'white',fontWeight:'bold' }}>
+                ¿Quieres compartir tu conocimiento y experiencia?
+              </Typography>
+              <Grid item>
+                <Link to="/register">
+                  <Button variant="contained" color="secondary">
+                    ¡Únete como Mentor!
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
+          </Container>
     </Container>
   );
 };

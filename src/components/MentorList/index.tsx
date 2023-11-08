@@ -70,6 +70,7 @@ export const MentorList: React.FC<MentorListProps> = () => {
                 <Button
                   size="small"
                   variant="contained"
+                  color='secondary'
                   fullWidth
                   onClick={() => handleLearnMore(mentor.id)}
                   disabled={mentor.disponibilidad.trim() === ''}
