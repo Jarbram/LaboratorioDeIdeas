@@ -3,6 +3,7 @@ import { Box, Button, Card, CardHeader, Container,  Grid, Icon, Typography } fro
 import { MentorList } from '../../components/MentorList';
 import { EmojiObjectsOutlined, GroupWork, HelpOutlined } from '@mui/icons-material';
 import { Logo } from '../../common/logo';
+import { Link } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
   const mentorListRef = useRef<HTMLDivElement>(null);
@@ -100,6 +101,11 @@ export const HomePage: React.FC = () => {
               />
             </Card>
           </Grid>
+          <Link to="/register">
+              <Button variant="contained" color="primary" sx={{  mt: 5, mb: 5 }}>
+                Conviértete en Mentor
+              </Button>
+          </Link>
         </Grid>
       </Box>
       <Box ref={mentorListRef}>
