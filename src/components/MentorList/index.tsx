@@ -57,10 +57,22 @@ export const MentorList: React.FC<MentorListProps> = () => {
       <Grid container spacing={3} justifyContent="center" mt={5} mb={12}>
         {mentors.map((mentor) => (
           <Grid item key={mentor.id} xs={12} sm={6} md={4} lg={3}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-              <CardMedia component="img" height="360" image={mentor.foto} alt="Mentor" />
+            <Card 
+            sx={{ 
+              height: '100%', 
+              display: 'flex', 
+              flexDirection: 'column' 
+              }}>
+              <CardMedia 
+              component="img" 
+              height="350" 
+              image={mentor.foto} 
+              alt="Mentor" 
+              />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography variant="h6" sx={{ mb: 1.5 }}>
+              <Typography 
+              variant="h6" 
+              sx={{ mb: 1.5 }}>
                   {mentor.nombre}
                 </Typography>
                 <Divider />

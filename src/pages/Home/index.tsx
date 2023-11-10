@@ -3,7 +3,9 @@ import { Box, Button, Card, CardHeader, Container, Grid, Icon, Typography} from 
 import { MentorList } from '../../components/MentorList';
 import { EmojiObjectsOutlined, GroupWork, HelpOutlined } from '@mui/icons-material';
 import { Logo } from '../../common/logo';
+import {Testimonials} from '../../components/Testimonial'
 import { Link } from 'react-router-dom';
+import { BecomeMentor } from '../../components/BecomeMentor';
 
 export const HomePage: React.FC = () => {
   const mentorListRef = useRef<HTMLDivElement>(null);
@@ -37,8 +39,8 @@ export const HomePage: React.FC = () => {
           sx={{ height: '100%'}}
         >
           <Typography
-            variant="h4"
-            sx={{ textAlign: 'center', color: '#000000' }}
+            variant="h2"
+            sx={{ textAlign: 'center', color: '#000000', fontSize:'2.1rem', fontWeight:'500' }}
             maxWidth="md"
           >
             Asesorías personalizadas para alumnas
@@ -122,25 +124,12 @@ export const HomePage: React.FC = () => {
       <Box ref={mentorListRef}>
         <MentorList />
       </Box>
-          <Container maxWidth="xl" sx={{padding:'10px'}}>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Typography variant="body1" sx={{ color: 'white',fontWeight:'bold' }}>
-                ¿Quieres compartir tu conocimiento y experiencia?
-              </Typography>
-              <Grid item>
-                <Link to="/register">
-                  <Button variant="contained" color="secondary">
-                    ¡Únete como Mentor!
-                  </Button>
-                </Link>
-              </Grid>
-            </Grid>
-          </Container>
+      <Box >
+        <Testimonials />
+      </Box>
+      <Box >
+        <BecomeMentor />
+      </Box>
     </Container>
   );
 };

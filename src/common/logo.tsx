@@ -3,9 +3,12 @@ import React from "react"
 import UDEP from "../assets/UDEP.png"
 import WISE from "../assets/WISE.png"
 import HUB from "../assets/HUB.png"
+import LAB from '../assets/Logo Laboratorio de Ideas-01.png';
+import { useNavigate, Link } from 'react-router-dom';
 
 export const Logo: React.FC<{}> = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -31,6 +34,10 @@ export const Logo: React.FC<{}> = () => {
         },
       }}
     >
+    <Link to="/">
+      <img src={LAB} alt="logo laboratorio de ideas" width="auto" height="120px" />
+    </Link>
+     
       <img src={WISE} alt="logo" width="auto" height="200px" />
 
       <img src={UDEP} alt="logo" width="auto" height="100px" />
