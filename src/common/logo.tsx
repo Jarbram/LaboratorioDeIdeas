@@ -4,11 +4,10 @@ import UDEP from "../assets/UDEP.png"
 import WISE from "../assets/WISE.png"
 import HUB from "../assets/HUB.png"
 import LAB from '../assets/Logo Laboratorio de Ideas-01.png';
-import { useNavigate, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 export const Logo: React.FC<{}> = () => {
   const theme = useTheme();
-  const navigate = useNavigate();
 
   return (
     <Box

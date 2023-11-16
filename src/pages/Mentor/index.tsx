@@ -170,42 +170,56 @@ export const MentorPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <div>
-        <IconButton color="primary" component={Link} to="/" sx={{ left: 0, top: 70 }}>
-          <ArrowBackIosNewOutlined />
-        </IconButton>
-        {mentor ? (
-          <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={2}
-            flexDirection={'column'}
-          >
-            <Grid item xs={12} sx={{ mb: 10, mt: 10 }}>
-              <MentorCard mentor={mentor} />
-              {mentor.disponibilidad ? (
-                <AvailabilityTable
-                  availabilities={mentor.disponibilidad.split(';').map((availability) => {
-                    const [date, time] = availability.trim().split(' ');
-                    return { date, time };
-                  })}
-                  selectedAvailability={selectedAvailability}
-                  onSelectAvailability={handleAvailabilitySelect}
-                />
-              ) : (
-                <Typography variant="h4" sx={{ mt: 2, textAlign:'center', color:'primary' }}>Mentorías agotadas</Typography>
-              )}
-              <Button
-                variant="contained"
-                onClick={handleDialogOpen}
-                disabled={!selectedAvailability || !mentor.disponibilidad}
-              >
-                Solicitar Asesoría
-              </Button>
-            </Grid>
+    <Container maxWidth="xl">
+    <div>
+    <IconButton
+  color="secondary"
+  component={Link}
+  to="/"
+  sx={{
+    left: 0,
+    top: 10,
+    padding: 1, // Ajusta el tamaño del botón
+  }}
+>
+  <ArrowBackIosNewOutlined />
+  <span style={{ marginLeft: 4 }}>Volver</span>
+</IconButton>
+      {mentor ? (
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          flexDirection={'column'}
+        >
+         <Grid item xs={12} sx={{ mb: 10, mt: 10, alignItems: 'center', textAlign: 'center' }}>
+  <MentorCard mentor={mentor} />
+  {mentor.disponibilidad ? (
+    <AvailabilityTable
+      availabilities={mentor.disponibilidad.split(';').map((availability) => {
+        const [date, time] = availability.trim().split(' ');
+        return { date, time };
+      })}
+      selectedAvailability={selectedAvailability}
+      onSelectAvailability={handleAvailabilitySelect}
+    />
+  ) : (
+    <Typography variant="h4" sx={{ mt: 2, color: 'primary' }}>
+      Mentorías agotadas
+    </Typography>
+  )}
+  <Button
+    variant="contained"
+    color='secondary'
+    onClick={handleDialogOpen}
+    disabled={!selectedAvailability || !mentor.disponibilidad}
+    sx={{ mt: 4 }}
+  >
+    Solicitar Asesoría
+  </Button>
+</Grid>
           </Grid>
         ) : (
           <Typography>Cargando mentor...</Typography>

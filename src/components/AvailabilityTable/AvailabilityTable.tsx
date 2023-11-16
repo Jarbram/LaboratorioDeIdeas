@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 interface Availability {
   date: string;
@@ -18,13 +18,19 @@ const AvailabilityTable: React.FC<AvailabilityTableProps> = ({
   onSelectAvailability,
 }) => {
   return (
-    <TableContainer>
+    <TableContainer component={Paper} sx={{ margin: 'auto', maxWidth: '800px',  borderRadius: 4,marginTop:'10px' }}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Fecha</TableCell>
-            <TableCell>Hora</TableCell>
-            <TableCell>Seleccionar</TableCell>
+            <TableCell align="center" sx={{ fontWeight: 'bold' }}>
+              Fecha
+            </TableCell>
+            <TableCell align="center" sx={{ fontWeight: 'bold' }}>
+              Hora
+            </TableCell>
+            <TableCell align="center" sx={{ fontWeight: 'bold' }}>
+              Seleccionar
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -34,10 +40,15 @@ const AvailabilityTable: React.FC<AvailabilityTableProps> = ({
 
             return (
               <TableRow key={index}>
-                <TableCell>{date}</TableCell>
-                <TableCell>{time}</TableCell>
-                <TableCell>
-                  <Button variant={isSelected ? "contained" : "outlined"} onClick={() => onSelectAvailability(availability)}>
+                <TableCell align="center">{date}</TableCell>
+                <TableCell align="center">{time}</TableCell>
+                <TableCell align="center">
+                  <Button
+                    variant={isSelected ? 'contained' : 'outlined'}
+                    color='secondary'
+                    onClick={() => onSelectAvailability(availability)}
+                    sx={{ minWidth: '120px' }}
+                  >
                     Seleccionar
                   </Button>
                 </TableCell>

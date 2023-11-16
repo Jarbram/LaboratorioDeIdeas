@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Divider, Grid, Stepper, Step, StepLabel, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Divider, Grid, Stepper, Step, StepLabel, Typography, CircularProgress, Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
@@ -18,19 +18,27 @@ interface Mentor {
 
 export const MentorList: React.FC<MentorListProps> = () => {
   const [mentors, setMentors] = useState<Mentor[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMentors = async () => {
-      const mentorsCollection = collection(db, 'mentores');
-      const mentorsSnapshot = await getDocs(mentorsCollection);
-      const mentorsData: Mentor[] = [];
+      try {
+        const mentorsCollection = collection(db, 'mentores');
+        const mentorsSnapshot = await getDocs(mentorsCollection);
+        const mentorsData: Mentor[] = [];
 
-      mentorsSnapshot.forEach((doc) => {
-        mentorsData.push({ id: doc.id, ...doc.data() } as Mentor);
-      });
+        mentorsSnapshot.forEach((doc) => {
+          mentorsData.push({ id: doc.id, ...doc.data() } as Mentor);
+        });
 
-      setMentors(mentorsData);
+        setMentors(mentorsData);
+        setLoading(false);
+      } catch (error) {
+        setError('Error al cargar los mentores. Por favor, inténtalo de nuevo más tarde.');
+        setLoading(false);
+      }
     };
 
     fetchMentors();
@@ -39,6 +47,17 @@ export const MentorList: React.FC<MentorListProps> = () => {
   const handleLearnMore = (mentorId: string | number) => {
     navigate(`/mentor/${mentorId}`);
   };
+
+  if (loading) {
+    
+    return(<Box mt={5} sx={{display :'flex', alignItems:'center', justifyContent:'center'}}>
+      <CircularProgress color='secondary' />;
+    </Box>)
+  }
+
+  if (error) {
+    return <Typography variant="h6" color="error">{error}</Typography>;
+  }
 
   return (
     <>
@@ -68,6 +87,7 @@ export const MentorList: React.FC<MentorListProps> = () => {
               height="350" 
               image={mentor.foto} 
               alt="Mentor" 
+              sx={{ objectFit: 'cover' }} 
               />
               <CardContent sx={{ flexGrow: 1 }}>
               <Typography 

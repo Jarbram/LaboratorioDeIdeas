@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Divider, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Divider, Typography, Grid, Box } from '@mui/material';
 
 interface Mentor {
   nombre: string;
@@ -14,26 +14,36 @@ interface MentorCardProps {
 
 const MentorCard: React.FC<MentorCardProps> = ({ mentor }) => {
   return (
-    <Card>
-      <CardMedia component="img" height="450" image={mentor.foto} alt="Mentor" />
-      <CardContent>
-      <Typography variant="h6" sx={{ mb: 1.5 }}>
-          {mentor.nombre}
-        </Typography>
-        <Divider />
-        <CardContent sx={{alignItems:'center'}}>
-        <Typography  
-        sx={{ 
-          mt: 1.5, 
-          color: 'black',
-          }}>
-          {mentor.especialidad}
-        </Typography>
-        </CardContent>
-        <Divider sx={{ mt: 1.5 }} />
-        <Typography sx={{ mt: 1.5, letterSpacing:1.2 }}>{mentor.descripcion}</Typography>
-      </CardContent>
-    </Card>
+    <Box maxWidth="600px" mx="auto">
+      <Card>
+        <Grid container >
+          <Grid item xs={12} sm={6} >
+            <CardMedia
+              component="img"
+              height="200"
+              image={mentor.foto}
+              alt="Mentor"
+              sx={{ objectFit: 'cover', height: '100%', width: '100%',borderRadius: 4 }}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <CardContent sx={{borderRadius: 4}}>
+              <Typography variant="h6" sx={{ textAlign: 'center' }}>
+                {mentor.nombre}
+              </Typography>
+              <Divider />
+              <Typography sx={{  color: 'black', textAlign: 'center'}} mb={2}>
+                {mentor.especialidad}
+              </Typography>
+              <Divider />
+              <Typography color={'textSecondary'} sx={{ letterSpacing: 1.2, textAlign: 'center' }}>
+                {mentor.descripcion}
+              </Typography>  
+            </CardContent>
+          </Grid>
+        </Grid>
+      </Card>
+    </Box>
   );
 };
 

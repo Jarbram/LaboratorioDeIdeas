@@ -5,9 +5,12 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import { IconButton } from '@mui/material';
 import { DatePicker, TimePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { ArrowBackIosNewOutlined } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const paperStyle = {
   padding: '20px',
@@ -27,6 +30,7 @@ export const MentorRegistrationPage: React.FC = () => {
     foto: '',
     nombre: '',
   });
+
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<Date | null>(null);
   const [disponibilidades, setDisponibilidades] = useState<string[]>([]);
@@ -40,6 +44,17 @@ export const MentorRegistrationPage: React.FC = () => {
     }
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setMentorData({ ...mentorData, foto: reader.result as string });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleRegistrationSubmit = () => {
     const mentorInfo = {
       ...mentorData,
@@ -49,7 +64,20 @@ export const MentorRegistrationPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="xl">
+      <IconButton
+        color="secondary"
+        component={Link}
+        to="/"
+        sx={{
+          left: 0,
+          top: 10,
+          padding: 1, // Ajusta el tamaño del botón
+        }}
+      >
+        <ArrowBackIosNewOutlined />
+        <span style={{ marginLeft: 4 }}>Volver</span>
+      </IconButton>
       <Paper elevation={3} style={paperStyle}>
         <Typography variant="h4" gutterBottom>
           Registro de Mentor
@@ -90,12 +118,21 @@ export const MentorRegistrationPage: React.FC = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
-              label="URL de la Foto de Perfil"
-              fullWidth
-              value={mentorData.foto}
-              onChange={(e) => setMentorData({ ...mentorData, foto: e.target.value })}
+            <input
+              accept="image/*"
+              id="foto-upload"
+              type="file"
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
             />
+            <label htmlFor="foto-upload">
+              <Button variant="contained" component="span" style={buttonStyle}>
+                Adjuntar Foto
+              </Button>
+            </label>
+            {mentorData.foto && (
+              <img src={mentorData.foto} alt="Preview" style={{ marginTop: '10px', maxWidth: '100%' }} />
+            )}
           </Grid>
           <Grid item xs={12}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -4,7 +4,6 @@ import { MentorList } from '../../components/MentorList';
 import { EmojiObjectsOutlined, GroupWork, HelpOutlined } from '@mui/icons-material';
 import { Logo } from '../../common/logo';
 import {Testimonials} from '../../components/Testimonial'
-import { Link } from 'react-router-dom';
 import { BecomeMentor } from '../../components/BecomeMentor';
 
 export const HomePage: React.FC = () => {
@@ -16,7 +15,7 @@ export const HomePage: React.FC = () => {
   };
 
   return (
-    <Container sx={{ mt:1}} maxWidth="xl">
+    <Container sx={{ mt:5}} maxWidth="xl">
       <Logo />
       <Box
         sx={{

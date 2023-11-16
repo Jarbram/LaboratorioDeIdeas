@@ -52,8 +52,8 @@ export const Testimonials: React.FC = () => {
     <Typography variant="body1" align="center" color="textSecondary" paragraph>
     Conoce las historias de éxito y aprendizaje compartidas por aquellos que han sido parte del Laboratorio de Ideas y han recibido mentorías únicas.
     </Typography>
-    <Grid container spacing={4} justifyContent="center">
-      <Grid container item spacing={4} justifyContent="center">
+    <Grid container spacing={2} justifyContent="center">
+      <Grid container item spacing={2} justifyContent="center">
         {testimonios.map((testimonio) => (
           <Grid item key={testimonio.id}>
             <TestimonialCard>
